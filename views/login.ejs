@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/comun.css">
+    <link rel="stylesheet" href="./CSS/login.css">
+    <link rel="stylesheet" href="./CSS/tienda.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+<body class="page">
+    <%- include('header') -%>
+    <main id="main">
+        <div>
+            <form action="javascript:void(0);" class="login">
+                <H2 class="titulo-login">Login</H2>
+                <input type="text" name="" id="emailLogin" placeholder="email">
+                <input type="password" name="" id="passLogin" placeholder="contraseña">
+                <button type="submit" id="btn-Login" class="custom-btn btn-3"><span>Acceder</span></button>
+            </form>
+            <div id="olvidoSuContraseña">
+                <a href="/recuperar">¿Olvidó su contraseña?</a>
+            </div>
+        </div>
+    </main>
+    <%- include('footer') -%>
+    <script src="./JS/buscador.js"></script>
+    <script src="./JS/login.js"></script>
+    <script src="./JS/suscripcion.js"></script>
+</body>
+</html>

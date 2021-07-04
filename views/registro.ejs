@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/comun.css">
+    <link rel="stylesheet" href="./CSS/registro.css">
+    <link rel="stylesheet" href="./CSS/tienda.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Registro</title>
+</head>
+<body class="page">
+    <%- include('header') -%>
+    <main id="main">
+        <div>
+            <form action="javascript:void(0);" class="registro">
+                <H2 class="titulo-registro">Registro</H2>
+                <input type="text" name="" id="nombreRegistro" placeholder="Nombre">
+                <input type="text" name="" id="apellidoRegistro" placeholder="Apellido">
+                <input type="text" name="" id="direccionRegistro" placeholder="Dirección">
+                <input type="text" name="" id="emailRegistro" placeholder="email">
+                <input type="text" name="" id="telefonoRegistro" placeholder="telefono">
+                <input type="password" name="" id="passwordRegistro" placeholder="contraseña">
+                <input type="password" name="" id="repetirPasswordRegistro" placeholder="repetir contraseña">
+                <button type="submit" id="btn-Registro" class="custom-btn btn-3"><span>Registrarme</span></button>
+            </form>
+        </div>
+    </main>
+    <%- include('footer') -%>
+    <script src="./JS/buscador.js"></script>
+    <script src="./JS/registro.js"></script>
+    <script src="./JS/suscripcion.js"></script>
+</body>
+</html>

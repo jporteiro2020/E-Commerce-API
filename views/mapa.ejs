@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('head_mapas') -%>
+<body class="page">
+    <%- include('header') -%>
+    <main id="main">
+        <div id="contenedor">
+            <div id="mapid"></div>
+            <div class="horario">
+                <p>Nuestro horario de atención es:</p>
+                <ul>
+                    <li>De Lunes a Viernes de 9:00 a 13 y 14 a 19 hrs</li>
+                    <li>Los Sábados de  9 a 14hrs</li>
+                </ul>
+            </div>
+            <div class="ubicacion">
+                <p>Dirección:</p>
+                <ul>
+                    <li><%= direccion %></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <%- include('footer') -%>
+    <%- include('scripts_mapas') -%>
+    <script src="./JS/<%= mapa %>"></script>
+</body>
+</html>

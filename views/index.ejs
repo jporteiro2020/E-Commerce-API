@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('head_index_tienda') -%>
+    <link rel="stylesheet" href="./CSS/index.css">
+    <title>Inicio</title>
+</head>
+<body class="page">
+    <%- include('header') -%>
+    <main id="main">
+        <article id="article-index" class="article-grid">
+            <div class="info-bienvenida">
+                <h1>¡Bienvenido a IT's Possible!</h1>
+                <p>Esta empresa se dedica a la venta de Hardware y Software, en esta tienda encontrarás una gran variedad de productos 
+                a su disposición.</p>
+            </div>
+            <div class="horario">
+                <p>Nuestro horario de atención es:</p>
+                <ul>
+                    <li>De Lunes a Viernes de 9:00 a 13 y 14 a 19 hrs</li>
+                    <li>Los Sábados de  9 a 14hrs</li>
+                </ul>
+            </div>
+            <div class="ubicacion">
+                <p>Nos puedes encontrar en nuestras dos sucursales:</p>
+                <ul>
+                    <li>Dirección: Juan Paullier 2378 entre Amézaga y Domingo Aramburú - Mapa: <button class="custom-btn btn-16" onclick="location.href='/sucursal1'"><i class="fas fa-map-marked-alt"></i></button></li>
+                    <li>Dirección: Demóstenes 3532 - Mapa: <button class="custom-btn btn-16" onclick="location.href='/sucursal2'"><i class="fas fa-map-marked-alt"></i></button></li>
+                </ul>
+            </div>
+            <div class="divBotones">
+                <button class="custom-btn btn-2 boton1" onclick="location.href='/productos'">Ir a la tienda</button>
+                <button class="custom-btn btn-2 boton2" onclick="location.href='/login'">Iniciar Sesión</button>
+                <button class="custom-btn btn-2 boton3" onclick="location.href='/registro'">Registrarme</button>
+            </div>
+        </article>
+    </main>
+    <%- include('footer') -%>
+    <script src="./JS/producto.js"></script>
+    <script src="./JS/buscador.js"></script>
+    <script src="./JS/suscripcion.js"></script>
+</body>
+</html>

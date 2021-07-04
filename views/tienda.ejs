@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('head_index_tienda') -%>
+    <title>Tienda</title>
+</head>
+<body class="page">
+    <%- include('header') -%>
+    <main id="main">
+        <section class="destacado" id="destacados">
+            <h2>Destacados</h2>
+            <div id="divDestacado" class="media-q">
+            </div>
+        </section>
+        <section class="PC-Escritorio" id="PC-Escritorio">
+            <h2>PC Escritorio</h2>
+            <div id="divEscritorio" class="media-q">
+
+            </div>
+        </section>
+        <section class="Notebooks" id="Notebooks">
+            <h2>Notebooks</h2>
+            <div id="divNotebook" class="media-q">
+
+            </div>
+        </section>
+        <section class="Consolas" id="Consolas">
+            <h2>Consolas</h2>
+            <div id="divConsolas" class="media-q">
+
+            </div>
+        </section>
+    </main>
+    <%- include('footer') -%>
+    <script src="./JS/producto.js"></script>
+    <script src="./JS/productoFunc.js"></script>
+    <script src="./JS/buscador.js"></script>
+    <script src="./JS/suscripcion.js"></script>
+</body>
+</html>
