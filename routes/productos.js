@@ -60,6 +60,23 @@ router.get('/obtProductosCons', async (req, res) => {
   });
 });
 
+router.get('/obtProductos', async (req, res) => {
+  let productos = null;
+  const busqueda = req.query.busqueda;
+
+  try{
+    productos = await productosPer.obtProductos(busqueda);
+    
+  }catch(e){
+    sendErr.internalErr(res);
+    throw e;
+  }
+
+  res.status(200).json({ 
+    data: productos
+  });
+});
+
 /*router.get('/obtProductosConsSubCat', (req, res) => {
   const productos = null;
   try{

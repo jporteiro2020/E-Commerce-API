@@ -76,10 +76,10 @@ const obtProdConsolaSubCategoria = async (subCategoria)=>{
 
 const obtProductos = async (busqueda)=>{
     const client = await conectar();
-    
+
     try{
         if(busqueda){
-            const response = await client.query('SELECT * FROM producto WHERE lower(nombre) like `%lower($1)%` or lower(descripcionCorta) like `%lower($1)% or lower(descripcion) like `%lower($1)%', [busqueda]);
+            const response = await client.query(`SELECT * FROM producto WHERE nombre ILIKE '%${busqueda}%' or descripcionCorta ILIKE '%${busqueda}%' or descripcion ILIKE '%${busqueda}%'`);
             return response.rows;
         }else{
             return 1;//Si la variable busqueda es null o undefined

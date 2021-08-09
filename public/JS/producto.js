@@ -15,7 +15,7 @@ let notebooks = [];
 let consolas = [];
 
 async function obtDestacados(){
-    const resultado = await fetch("https://localhost:4000/obtProdDestacado", {
+    const resultado = await fetch("http://localhost:4000/obtProdDestacado", {
                                 method: "GET",
                             });
     const parseResultado = await resultado.json();
@@ -23,7 +23,7 @@ async function obtDestacados(){
 }
 
 async function obtPCEscritorio(){
-    const resultado = await fetch("https://localhost:4000/obtProductosPC", {
+    const resultado = await fetch("http://localhost:4000/obtProductosPC", {
                                 method: "GET",
                             });
     const parseResultado = await resultado.json();
@@ -31,7 +31,7 @@ async function obtPCEscritorio(){
 }
 
 async function obtNotebook(){
-    const resultado = await fetch("https://localhost:4000/obtProductosNot", {
+    const resultado = await fetch("http://localhost:4000/obtProductosNot", {
                                 method: "GET",
                             });
     const parseResultado = await resultado.json();
@@ -39,7 +39,7 @@ async function obtNotebook(){
 }
 
 async function obtConsolas(){
-    const resultado = await fetch("https://localhost:4000/obtProductosCons", {
+    const resultado = await fetch("http://localhost:4000/obtProductosCons", {
                                 method: "GET",
                             });
     const parseResultado = await resultado.json();

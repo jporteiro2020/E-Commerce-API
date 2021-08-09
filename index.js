@@ -12,10 +12,10 @@ const suscripcionRouter = require('./routes/suscripcion');
 //Se crea una instancia de express (Se crea la aplicación)
 const app = express();
 
-const options = {
+/*const options = {
     key: fs.readFileSync('./certificados/key.pem'),
     cert: fs.readFileSync('./certificados/cert.pem')
-};
+};*/
 
 //Settings
 app.set('port', process.env.PORT || 4000);
@@ -40,6 +40,10 @@ app.use(function(req, res, next){
 });
 
 //Se crea el servidor HTTPS
-https.createServer(options, app).listen(app.get('port'), function(){
+/*https.createServer(options, app).listen(app.get('port'), function(){
+    console.log("El servidor HTTPS está escuchando en el puerto " + app.get('port') + "...");
+});*/
+
+app.listen(app.get('port'), function(){
     console.log("El servidor HTTPS está escuchando en el puerto " + app.get('port') + "...");
 });
