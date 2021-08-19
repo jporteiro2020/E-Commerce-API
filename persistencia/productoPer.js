@@ -58,7 +58,6 @@ const obtProdConsola = async ()=>{
 
 const obtProdConsolaSubCategoria = async (subCategoria)=>{
     const client = await conectar();
-
     try{
         if(subCategoria){
             const response = await client.query('SELECT p.*, c.subCategoria FROM producto p, consola c WHERE p.id = c.idProducto and c.subCategoria = $1', [subCategoria]);
@@ -74,12 +73,33 @@ const obtProdConsolaSubCategoria = async (subCategoria)=>{
     }
 }
 
+const obtProducto = async (id)=>{
+    console.log(id)
+    const client = await conectar();
+
+    try{
+        if(id){
+            const response = await client.query("SELECT * FROM producto WHERE id = $1", [id]);
+            return response.rows;
+        }else{
+            return 1;//Si la variable busqueda es null o undefined
+        }
+    } catch(e){//Si hay un error, realizamos el rollback en la base de datos y lanzamos la excepción
+        await client.query('ROLLBACK');
+        throw e;
+    } finally{//Pase lo que pase, liberamos la conexión de la base de datos
+        client.release();
+    }
+}
+
 const obtProductos = async (busqueda)=>{
     const client = await conectar();
 
     try{
         if(busqueda){
-            const response = await client.query(`SELECT * FROM producto WHERE nombre ILIKE '%${busqueda}%' or descripcionCorta ILIKE '%${busqueda}%' or descripcion ILIKE '%${busqueda}%'`);
+            const busquedamodificada = "%"+busqueda+"%";
+            //SELECT * FROM producto WHERE nombre ILIKE '%${busqueda}%' or descripcionCorta ILIKE '%${busqueda}%' or descripcion ILIKE '%${busqueda}%'`
+            const response = await client.query("SELECT * FROM producto WHERE nombre ILIKE $1 or descripcionCorta ILIKE $1 or descripcion ILIKE $1", [busquedamodificada]);
             return response.rows;
         }else{
             return 1;//Si la variable busqueda es null o undefined
@@ -97,5 +117,7 @@ module.exports = {
     obtProdPcEscritorio,
     obtProdNotebook,
     obtProdConsola,
+    obtProdConsolaSubCategoria,
+    obtProducto,
     obtProductos
 }

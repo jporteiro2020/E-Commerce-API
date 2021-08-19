@@ -77,18 +77,38 @@ router.get('/obtProductos', async (req, res) => {
   });
 });
 
-/*router.get('/obtProductosConsSubCat', (req, res) => {
-  const productos = null;
+router.get('/obtProducto', async (req, res) => {
+  let producto = null;
+  const id = req.query.id;
+
   try{
-    productos = productosPer.obtProdConsola();
+    producto = await productosPer.obtProducto(id);
+    
   }catch(e){
-    sendErr.internalErr();
+    sendErr.internalErr(res);
+    throw e;
+  }
+
+  res.status(200).json({ 
+    data: producto
+  });
+});
+
+router.get('/obtProductosConsSubCat', async (req, res) => {
+  let productos = [];
+  const subCat = req.query.subCat.toUpperCase();
+  try{
+    if(subCat == 'PLAYSTATION' || subCat == 'XBOX' || subCat == 'NINTENDO' || subCat == 'RETRO'){
+      productos = await productosPer.obtProdConsolaSubCategoria(subCat);
+    }
+  }catch(e){
+    sendErr.internalErr(res);
     throw e;
   }
 
   res.status(200).json({ 
     data: productos
   });
-});*/
+});
 
 module.exports = router;

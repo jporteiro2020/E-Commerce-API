@@ -51,7 +51,6 @@ const eliminarSuscripcion = async (email) => {
 
             if(suscripcion.length > 0){
                 const response = await client.query('DELETE FROM suscripcion where id = $1', [email]);
-                console.log(response);
                 return response;
             }else{
                 return 1;//No hay suscripciones en la base de datos para el email enviado por parámetro

@@ -60,7 +60,6 @@ const actualizarUsuario = async (usuario) => {
     try{
         if(usuario){
             const response = await client.query('UPDATE usuario set email = $1, nombre = $2, apellido = $3, direccion = $4, telefono = $5 where email = $6', [usuario.emailNuevo, usuario.nombre, usuario.apellido, usuario.direccion, usuario.telefono, usuario.emailViejo]);
-            console.log(response);
             return response;
         }else{
             return 1;//El objeto usuario es null o undefined
@@ -79,7 +78,6 @@ const actualizarPassUsuario = async (email, pass) => {
     try{
         if(email, pass){
             const response = await client.query('UPDATE usuario set contrasenia = $1 where email = $2', [pass, email]);
-            console.log(response);
             return response;
         }else{
             return 1;//El mail y/o la pass es null o undefined
@@ -98,7 +96,6 @@ const eliminarUsuario = async (email) => {
     try{
         if(email){
             const response = await client.query('DELETE FROM usuario where id = $1', [email]);
-            console.log(response);
             return response;
         }else{
             return 1; //El mail es null o undefined

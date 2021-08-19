@@ -30,7 +30,6 @@ const crearVenta = async (email)=>{
                 const idVenta = obtIdVenta();
                 for(let i = 0; i<=cantidad; i++){
                     const response = await client.query('INSERT INTO venta (idVenta, idProducto, email, fecha, hora, cantidad) values ($1, $2, $3, current_date, current_time, $4)', [idVenta, items[i].idProducto, items[i].email, items[i].cantidad]);
-                    console.log(response);
                     return response;
                 }
 

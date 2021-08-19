@@ -45,7 +45,6 @@ const crearItemCarrito = async (carrito)=>{
 
             if(items.length = 0){
                 const response = await client.query('INSERT INTO carrito (idProducto, email, fecha, hora, cantidad) values ($1, $2, current_date, current_time, $3)', [carrito.idProducto, carrito.email, carrito.cantidad]);
-                console.log(response);
                 return response;
             }else{
                 return await actualizarItemCarrito(carrito);
@@ -70,7 +69,6 @@ const actualizarItemCarrito = async (carrito) => {
 
             if(items.length > 0){
                 const response = await client.query('UPDATE carrito set cantidad = cantidad+1 where idProducto = $1 and email = $2', [carrito.idProducto, carrito.email]);
-                console.log(response);
                 return response;
             }else{
                 return 1;//El objeto items no tiene datos
@@ -95,7 +93,6 @@ const eliminarItemCarrito = async (carrito) => {
 
             if(items.length > 0){
                 const response = await client.query('DELETE FROM carrito where idProducto = $1 and email = $2', [carrito.idProducto, carrito.email]);
-                console.log(response);
                 return response;
             }else{
                 return 1;//El objeto items no tiene datos
@@ -120,7 +117,6 @@ const eliminarTodoCarritoUsuario = async (email) => {
 
             if(items.length > 0){
                 const response = await client.query('DELETE FROM carrito where email = $1', [email]);
-                console.log(response);
                 return response;
             }else{
                 return 1;//El objeto items no tiene datos
